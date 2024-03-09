@@ -9,8 +9,14 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <nav>Minesweeper</nav>
-    <main id="root"></main>
+    <div class="stack center-content | app-container">
+      <nav>Minesweeper</nav>
+      <main id="root"></main>
+      <div id="root-modal" class="modal imposter contain">
+        <h2>Game over!</h2>
+        <button id="reset-game">Reset</button
+      </div>
+    </div>
   </body>
   <script type="module" src="./src/index.js"></script>
 </html>

@@ -1,0 +1,137 @@
+/* ----------------------------------------------------------------------------
+ * Base Styles
+ * --------------------------------------------------------------------------*/
+html,
+body,
+.app-container {
+  height: 100vh;
+}
+
+
+/* ----------------------------------------------------------------------------
+ * Layout
+ * --------------------------------------------------------------------------*/
+
+/* stack
+ *
+ * Space between items in a column.  Prefer this over the `region` when you
+ * have items in a column which require uniform spacing
+ *
+ * sizes: stack:tight, stack:hug, stack
+ * -------------------------------------------------------------------------*/
+.stack {
+  --space: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack > * + * {
+  margin-top: var(--space);
+}
+
+
+/* row
+ *
+ * layout children in a row (horizontally)
+ * -------------------------------------------------------------------------*/
+.row {
+  display: flex;
+}
+
+
+/* center
+ *
+ * layout children in center of container
+ * * -------------------------------------------------------------------------*/
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Imposter
+ *
+ * Places content ontop of other content and correctly centers the layout.
+ * Think: modal.
+ * -------------------------------------------------------------------------*/
+.imposter {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imposter.contain {
+  --margin: 0px;
+  overflow: auto;
+  max-inline-size: calc(100% - (var(--margin) * 2));
+  max-block-size: calc(100% - (var(--margin) * 2));
+}
+
+/* ----------------------------------------------------------------------------
+ * App Specific Styles
+ * --------------------------------------------------------------------------*/
+
+:root {
+  --red-1:  red;
+  --gray-1: #D3D3D3; /* light gray */
+  --gray-2: #a9a9a9; /* light gray */
+  --gray-3: #7d7d7d; /* light gray */
+}
+
+/* modal
+ * ------------------------------------------------------------------------- */
+
+/* @todo add accessibile approach to hiding */
+.modal {
+  visibility: hidden;
+  padding: 6em;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.modal\:open {
+  visibility: visible;
+  border: 1px solid black;
+}
+
+/* tiles
+ * ------------------------------------------------------------------------- */
+
+.tile {
+  width: 3em;
+  height: 3em;
+  vertical-align: middle;
+  text-align: center;
+  color: transparent;
+  background-color: var(--gray-2);
+  border: 1px solid black;
+}
+
+.tile:hover {
+  background-color: var(--gray-3);
+}
+
+.tile:active {
+  background-color: var(--gray-1);
+}
+
+.tile\:open {
+  color: black;
+  background-color: var(--gray-1);
+}
+
+.tile\:open:hover {
+  background-color: var(--gray-1);
+}
+
+.tile\:bomb {
+  color: white;
+  background-color: var(--red-1);
+}
+
+.tile\:bomb:hover {
+  background-color: var(--red-1);
+}

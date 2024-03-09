@@ -4,14 +4,15 @@ const http = require('http');
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
-  const file = __dirname + req.url;
+  const file_path = __dirname + req.url;
+  const file = file_path.split("/").pop();
 
   console.log("Loading File: ", file);
 
   const files = {
-    "/Users/thomas/code/projects/minesweeper/":                  {file: "./public/index.html", type: "text/html"},
-    "/Users/thomas/code/projects/minesweeper/src/index.js":      {file: "./src/index.js",      type: "text/javascript"},
-    "/Users/thomas/code/projects/minesweeper/public/styles.css": {file: "./public/styles.css", type: "text/css"},
+    "":           {file: "./public/index.html", type: "text/html"},
+    "index.js":   {file: "./src/index.js",      type: "text/javascript"},
+    "styles.css": {file: "./public/styles.css", type: "text/css"},
   }
 
   fs.readFile(files[file].file, (err, data) => {
