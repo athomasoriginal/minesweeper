@@ -2,6 +2,8 @@
 
 Simple [minesweeper] in Vanilla JS
 
+![Demo of Minesweeper]: ./demo_recording.mov
+
 - [Housekeeping]
 - [Quickstart]
 - [Features]
